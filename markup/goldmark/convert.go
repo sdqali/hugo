@@ -29,6 +29,7 @@ import (
 	"github.com/gohugoio/hugo/markup/goldmark/tables"
 	"github.com/yuin/goldmark/util"
 
+	uml "github.com/OhYee/goldmark-plantuml"
 	"github.com/yuin/goldmark"
 	emoji "github.com/yuin/goldmark-emoji"
 	"github.com/yuin/goldmark/ast"
@@ -221,6 +222,10 @@ func newMarkdown(pcfg converter.ProviderConfig) goldmark.Markdown {
 
 	if cfg.Parser.Attribute.Block || cfg.Parser.AutoHeadingID || cfg.Parser.AutoDefinitionTermID {
 		extensions = append(extensions, attributes.New(cfg.Parser))
+	}
+
+	if cfg.Extensions.Plantuml {
+		extensions = append(extensions, uml.Default)
 	}
 
 	md := goldmark.New(

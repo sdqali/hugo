@@ -81,6 +81,7 @@ var Default = Config{
 				Block:  [][]string{},
 			},
 		},
+		Plantuml: true,
 	},
 	Renderer: Renderer{
 		Unsafe: false,
@@ -168,6 +169,9 @@ type Extensions struct {
 	LinkifyProtocol string
 	TaskList        bool
 	CJK             CJK
+
+	// Plantuml
+	Plantuml bool
 }
 
 // Footnote holds footnote configuration.
